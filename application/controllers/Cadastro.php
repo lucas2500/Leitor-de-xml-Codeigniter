@@ -57,7 +57,7 @@ class Cadastro extends CI_Controller {
 		// carrego a tag do xml
 		$xmldata = $xmldoc->getElementsByTagName('dest');
 
-		// Inicializado a variável responsável pelo loop
+		// Inicializado a variável responsável pelo loop for
 		$xmlcount = $xmldata->length;
 
 		// delete o arquivo do servidor
