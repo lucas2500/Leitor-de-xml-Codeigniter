@@ -29,7 +29,7 @@ class Cadastro extends CI_Controller {
 		}
 
 		$configUpload['upload_path']   = $path;
-		$configUpload['allowed_types'] = 'pptx|docx|pdf|zip|rar|doc|xml';
+		$configUpload['allowed_types'] = 'xml';
 		$configUpload['encrypt_name']  = FALSE;
 		$this->upload->initialize($configUpload);
 		if ($this->upload->do_upload('arquivo')){
@@ -57,7 +57,7 @@ class Cadastro extends CI_Controller {
 		// carrego a tag do xml
 		$xmldata = $xmldoc->getElementsByTagName('dest');
 
-		// Inicializado a variável responsável pelo loop for
+		// Inicializado a variável responsável pelo loop
 		$xmlcount = $xmldata->length;
 
 		// delete o arquivo do servidor
