@@ -22,6 +22,7 @@ class Cadastro extends CI_Controller {
 
 	public function insertData(){
 
+		// Salvo o arquivo xml em um diretório
 		$path = "./uploads/";
 		if ( ! is_dir($path)) {
 			mkdir($path, 0777, $recursive = true);
@@ -33,6 +34,7 @@ class Cadastro extends CI_Controller {
 		$this->upload->initialize($configUpload);
 		if ($this->upload->do_upload('arquivo')){
 
+			// recupero o nome do arquivo
 			$arquivo = $this->upload->data();
 
 			$data2['nome'] = $arquivo['raw_name'].$arquivo['file_ext'];
@@ -45,16 +47,20 @@ class Cadastro extends CI_Controller {
 		}
 
 
+		// recupero o arquivo do diretório usando o nome
 		$file = $path.$data2['nome'];
 
+		// carrego o arquivo recuperado
 		$xmldoc = new DOMDocument();
 		$xmldoc ->load($file);
 
+		// carrego a tag do xml
 		$xmldata = $xmldoc->getElementsByTagName('dest');
-		// $xmldata2 = $xmldoc->getElementsByTagName('prod');
 
+		// Inicializado a variável responsável pelo loop
 		$xmlcount = $xmldata->length;
 
+		// delete o arquivo do servidor
 		unlink("./uploads/".$data2['nome']);
 
 		for ($i=0; $i <$xmlcount; $i++) {
