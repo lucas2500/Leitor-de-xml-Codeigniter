@@ -60,7 +60,7 @@ class Cadastro extends CI_Controller {
 		// Inicializado a variável responsável pelo loop
 		$xmlcount = $xmldata->length;
 
-		// delete o arquivo do servidor
+		// deleto o arquivo do servidor
 		unlink("./uploads/".$data2['nome']);
 
 		for ($i=0; $i <$xmlcount; $i++) {
