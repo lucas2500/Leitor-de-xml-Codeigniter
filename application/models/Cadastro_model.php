@@ -16,6 +16,11 @@ class Cadastro_model extends CI_model {
 
 	public function getVenda(){
 
+		$this->db->select('xNome');
+		$this->db->select('CNPJ');
+		$this->db->select('xBairro');
+		$this->db->select('UF');
+		$this->db->select('ID');
 		$this->db->order_by('ID', 'DESC');
 		$query = $this->db->get('venda');
 
